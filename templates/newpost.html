@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container" id="newpost">
+
+	<h2 class="text-center">Make a new post!</h2>	
+
+	<form method="post" role="form">
+		<div class="row subject-box">
+			<div class="col-xs-8 col-xs-offset-2">	
+				<div class="form-group">
+					<label for="subject" class="control-label">Title</label>
+					<span class="input-box">
+						<input type="text" class="form-control" name="subject" value={{subject}}>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row content-box">
+			<div class="col-xs-8 col-xs-offset-2">
+				<div class="form-group">
+					<label for="content" class="control-label">Content</label>
+					<textarea class="form-control" name="content" rows="15">{{content}}</textarea>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+	        <div class="col-xs-8 col-xs-offset-2">
+	            <span class="help-block" style="font-size: 14px;">{{error}}</span>
+	        </div>
+	    </div>
+
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-4">
+				<input type="submit" class="btn btn-default btn-block" value="Submit my post!">
+			</div>
+		</div>
+
+	</form>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+	$(function() {
+		$(".btn").mouseup(function(){
+	    	$(this).blur();
+		})
+	});
+</script>
+{% endblock %}

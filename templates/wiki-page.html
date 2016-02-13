@@ -1,0 +1,31 @@
+{% extends "wiki-base.html" %}
+
+{% block wiki_content %}
+
+	<div class="row post">
+		<div class="col-xs-12 col-md-10 col-md-offset-1">
+			<div class="col-xs-8 text-left post-heading">
+				<span class="post-title"> 
+					{{ article.subject }} 
+				</span>
+			</div>
+
+			{% if user %}
+			<div class="col-xs-4 edit-link-wrapper text-right">
+				<a class="edit-link" href="/wiki/_edit{{path}}">Edit</a>
+			</div>
+			{% else %}
+			<div class="col-xs-4 edit-link-wrapper text-right">
+				<a class="login-link" href="/login">Login to contribute</a>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12 col-md-10 col-md-offset-1 post-content">
+			{{ article.content | safe }}
+		</div>
+	</div>
+
+{% endblock %}

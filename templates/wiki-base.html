@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block controls %}
+	{% if user %}
+	    <ul class="nav navbar-nav navbar-right logged-in-controls">
+	        <li class="user-name">
+	            <a href="#">{{user.name}}</a>
+	        </li>
+	        <li>
+	            <a href="/logout">Logout</a>
+	        </li>
+	    </ul>
+    {% else %}
+	    <ul>
+	        <form id="base-login-controls" class="navbar-form navbar-right" action="/login" method="post">
+	            <div class="form-group">
+	                <input type="text" style="display:none;" class="form-control input-sm login-box" name="username" placeholder="Username">
+	            </div>
+	            <div class="form-group">
+	                <input type="password" style="display:none;" class="form-control input-sm login-box" name="password" placeholder="Password">
+	            </div>
+	            <a class="btn btn-default btn-sm login-btn-1">Sign In</a>
+	            <button type="submit" style="display:none;" class="btn btn-default btn-sm login-btn-2">Sign In</button>
+	            <a class="btn btn-default btn-sm signup-btn" href="/signup">Sign Up</a>
+	        </form>
+	    </ul>
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+	<div class="row">
+		<div class="col-xs-12 text-center main-title">
+			<a href="/wiki">CS 253 wiki</a>
+		</div>
+	</div>
+
+	{% block wiki_content %}
+	{% endblock %}
+
+</div>
+{% endblock %}
+
+{% block js %}
+	<script type="text/javascript">
+		$(function() {
+			$(".login-btn-1").click(function(e){
+				$(this).toggle();
+				$(".login-box").toggle()
+				$(".login-btn-2").toggle()
+				$(".signup-btn").toggle();
+			});
+		});
+	</script>
+{% endblock %}
+
+{% block wiki_js %}
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "wiki-base.html" %}
+
+{% block wiki_content %}
+
+	<div class="row wiki-top">
+		<div class="col-xs-12 col-md-10 col-md-offset-1 text-center">
+			<p>
+				This is a nice little wiki, where you can create, edit and contribute to the content. 
+				{% if not user %}
+
+				So <a href="/login" class="no-underline">log in</a> or <a href="/signup" class="no-underline">sign up</a> now and share your knowledge!
+
+				{% else %}
+				  <p>
+					  <a data-toggle="collapse" class='no-underline' href="#demo">Create a new page.</a>
+					  <div id="demo" class="collapse create-page-info col-xs-4 col-xs-offset-4">
+					    To create a new page, simply append the title of your new page to the current URL. For example, if you wish to create a page about
+					    <b>"soccer"</b>, then go to .../wiki/soccer. Happy wiki-ing!
+					  </div>
+				  </p>
+				{% endif %}	
+		</div>
+
+		<div class="existing col-xs-12 col-md-10 col-md-offset-1">
+			<div class="existing-title text-center">Existing Pages</div>
+			<ul>
+				{% for path in paths %}
+				<li class="list-group-item">
+					<a href="/{{path}}">{{path[5:]}}</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	
+{% endblock %}

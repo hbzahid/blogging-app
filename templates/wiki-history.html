@@ -1,0 +1,35 @@
+{% block controls %}
+  {% if page %}
+    <a class="gray-link" href="/wiki/{{path}}">view</a>
+    |
+    <a class="gray-link" href="/wiki/_history{{path}}">history</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+	<table class="history-table">
+		{% for p in posts %}
+			<tr>
+				<td class="date-cell">
+					{{ p.last_modified.strftime("%c") }}
+				</td>
+
+				<td class="content-cell">
+					{{ p.content[:100] }}
+				</td>
+
+				<td class="link-cell">
+					<a class="gray-link" href="/wiki/{{path}}?v={{p.key().id()}}">view</a>
+				</td>
+
+				{% if user %}
+					<td class="link-cell">
+						<a class="gray-link" href="/wiki/_edit{{path}}?v={{p.key().id()}}">edit</a>
+
+					</td>
+				{% endif %}
+
+			</tr>
+
+
+	</table>
