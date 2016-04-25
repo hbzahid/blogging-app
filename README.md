@@ -17,7 +17,6 @@ of the web:
   <li>Web APIs</li>
 </ul>
 
-Logging into the app gives the user privileges to contribute to the wiki. The database was setup with ancestral keys to
-enforce structural consistency.
+Logging into the app gives the user privileges to contribute to the wiki (blog posts can be submitted without signing up). The database was setup with ancestral keys to enforce structural consistency. 
 
-The backend was programmed with Python (using the webapp2 framework). The working version of the project can be found <a href="http://myprojectslib.appspot.com">here</a>.
+The working version of the project can be found <a href="http://myprojectslib.appspot.com">here</a>.
